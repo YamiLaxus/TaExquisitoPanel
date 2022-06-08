@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TaExisito! Panel</string>
+    <string name="nombre_del_producto">Nombre del Producto *</string>
+    <string name="descripci_n_del_producto">Descripción del Producto *</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="no_tel_fono">No. Telefono *</string>
+</resources>

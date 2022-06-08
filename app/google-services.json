@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "935364749101",
+    "firebase_url": "https://taexquisito-f60ef-default-rtdb.firebaseio.com",
+    "project_id": "taexquisito-f60ef",
+    "storage_bucket": "taexquisito-f60ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935364749101:android:735269746ad7da265f95a4",
+        "android_client_info": {
+          "package_name": "com.phonedev.taexisitopanel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935364749101-jb41hlch31f04qihht659tc4e4jntlqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSSe5nZMiJVR6qNMn7nIz1bnmBJBOBNog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "935364749101-jb41hlch31f04qihht659tc4e4jntlqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935364749101:android:a7a681653ad034115f95a4",
+        "android_client_info": {
+          "package_name": "com.phonedev.taexqusito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935364749101-jb41hlch31f04qihht659tc4e4jntlqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSSe5nZMiJVR6qNMn7nIz1bnmBJBOBNog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "935364749101-jb41hlch31f04qihht659tc4e4jntlqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
