@@ -5,4 +5,7 @@
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="no_tel_fono">No. Telefono *</string>
+    <string name="tipo_de_producto">TIPO DE PRODUCTO*</string>
+    <string name="campos_obligatorios">(Los campos * son obligatorios)</string>
+    <string name="precio">Precio*</string>
 </resources>

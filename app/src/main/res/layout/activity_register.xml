@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".ui.RegisterActivity">
 
     <ScrollView
@@ -49,7 +49,7 @@
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Nombre y Apellido"
+                android:hint="Nombre y Apellido*"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:textColorHint="#000000"
@@ -67,7 +67,7 @@
                 android:drawableStart="@drawable/ic_storefront"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Nombre del Negocio"
+                android:hint="Nombre del Negocio*"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:textColorHint="#000000"
@@ -85,7 +85,7 @@
                 android:drawableStart="@drawable/ic_restaurant"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Tipo de negocio: Cafe, Restaurante... "
+                android:hint="Tipo de negocio*: Cafe, Restaurante... "
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:textColorHint="#000000"
@@ -103,7 +103,7 @@
                 android:drawableStart="@drawable/ic_location"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Dirección"
+                android:hint="Dirección*"
                 android:inputType="textPostalAddress"
                 android:paddingStart="10dp"
                 android:textColorHint="#000000"
@@ -121,7 +121,7 @@
                 android:drawableStart="@drawable/ic_phone"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="No. Tel"
+                android:hint="No. Tel*"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:textColorHint="#000000"
@@ -129,6 +129,24 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etDireccion" />
+
+            <EditText
+                android:id="@+id/etFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/white_background_edittext"
+                android:drawableStart="@drawable/ic_link"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Facebook Link*"
+                android:inputType="textNoSuggestions"
+                android:paddingStart="10dp"
+                android:textColorHint="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etTelefono" />
 
             <EditText
                 android:id="@+id/etUser"
@@ -139,14 +157,14 @@
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Email - eje@example.com"
-                android:inputType="textPersonName"
+                android:hint="Email - eje@example.com*"
+                android:inputType="textEmailAddress"
                 android:paddingStart="10dp"
                 android:textColorHint="#000000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etTelefono" />
+                app:layout_constraintTop_toBottomOf="@id/etFacebook" />
 
             <EditText
                 android:id="@+id/etPassword"
@@ -157,7 +175,7 @@
                 android:drawableStart="@drawable/ic_pin"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Contraseña"
+                android:hint="Contraseña*"
                 android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:textColorHint="#000000"
@@ -201,9 +219,9 @@
                 android:textColor="#ffffff"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/btnCancel"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCancel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

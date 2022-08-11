@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageView
             android:id="@+id/imgLogin"
             android:layout_width="wrap_content"
@@ -20,7 +19,8 @@
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <EditText
             android:id="@+id/etUser"
@@ -32,13 +32,14 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="eje@example.com"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:paddingStart="10dp"
             android:textColorHint="#000000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgLogin" />
+            app:layout_constraintTop_toBottomOf="@id/imgLogin"
+            android:autofillHints="no" />
 
         <EditText
             android:id="@+id/etPassword"
