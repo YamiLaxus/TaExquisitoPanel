@@ -10,13 +10,18 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.phonedev.taexisitopanel.databinding.ActivityAddingBinding
 import android.R
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.provider.MediaStore
+import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class AddingActivity : AppCompatActivity() {
 
@@ -25,6 +30,21 @@ class AddingActivity : AppCompatActivity() {
 
     private lateinit var option: Spinner
     var selected: String? = null
+
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { photoSelected ->
+            if (photoSelected.resultCode == Activity.RESULT_OK) {
+                photoSelectedUri = photoSelected.data?.data
+
+                binding.let {
+                    Glide.with(this)
+                        .load(photoSelectedUri)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .centerCrop()
+                        .into(it.imgProductPrevie)
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +64,8 @@ class AddingActivity : AppCompatActivity() {
             val url = "http://192.168.1.105/android_taexquisito/ingresar_producto.php"
             val queue = Volley.newRequestQueue(this)
             if (binding.etName.text!!.isNotEmpty() && binding.etPrice.text!!.isNotEmpty() && binding.etDesciption.text!!.isNotEmpty() && binding.etPhone.text!!.isNotEmpty() && binding.etDireccion.text!!.isNotEmpty() && binding.etNombreTienda.text!!.isNotEmpty()) {
-                var resultadoPost = object :
-                    StringRequest(Request.Method.POST, url, Response.Listener<String> { response ->
+                val resultadoPost = object :
+                    StringRequest(Method.POST, url, Response.Listener { response ->
                         Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show()
                         onBackPressed()
                         finish()
@@ -57,30 +77,21 @@ class AddingActivity : AppCompatActivity() {
                         ).show()
                         enableUI()
                     }) {
-                    override fun getParams(): MutableMap<String, String>? {
+                    override fun getParams(): MutableMap<String, String> {
                         val pref = getSharedPreferences("user", Context.MODE_PRIVATE)
                         val usuario = pref.getString("usuario", "")
                         val parametros = HashMap<String, String>()
-                        parametros.put("nombre", binding.etName.text.toString().trim())
-                        parametros.put("precio", binding.etPrice.text.toString().trim())
-                        parametros.put("descripcion", binding.etDesciption.text.toString().trim())
-                        parametros.put("telefono", binding.etPhone.text.toString().trim())
-                        parametros.put("tipo_comida", selected.toString())
-                        parametros.put(
-                            "nombre_negocio",
-                            binding.etNombreTienda.text.toString().trim()
-                        )
-                        parametros.put("direccion", binding.etDireccion.text.toString().trim())
-                        parametros.put("facebook_link", binding.etFacebook.text.toString().trim())
-                        parametros.put(
-                            "tiempo_entrega",
-                            binding.etTiempoEntrega.text.toString().trim()
-                        )
-                        parametros.put("usuario", usuario.toString())
-                        parametros.put(
-                            "img",
-                            "https://cdni.russiatoday.com/actualidad/public_images/2022.02/article/620bddd359bf5b49bc7131b9.jpg"
-                        )
+                        parametros["nombre"] = binding.etName.text.toString().trim()
+                        parametros["precio"] = binding.etPrice.text.toString().trim()
+                        parametros["descripcion"] = binding.etDesciption.text.toString().trim()
+                        parametros["telefono"] = binding.etPhone.text.toString().trim()
+                        parametros["tipo_comida"] = selected.toString()
+                        parametros["nombre_negocio"] = binding.etNombreTienda.text.toString().trim()
+                        parametros["direccion"] = binding.etDireccion.text.toString().trim()
+                        parametros["facebook_link"] = binding.etFacebook.text.toString().trim()
+                        parametros["tiempo_entrega"] = binding.etTiempoEntrega.text.toString().trim()
+                        parametros["usuario"] = usuario.toString()
+                        parametros["img"] = "https://cdni.russiatoday.com/actualidad/public_images/2022.02/article/620bddd359bf5b49bc7131b9.jpg"
                         return parametros
                     }
                 }
@@ -90,10 +101,18 @@ class AddingActivity : AppCompatActivity() {
                 enableUI()
             }
         }
+        binding.ibProduct.setOnClickListener {
+            openGallery()
+        }
         binding.btnCancel.setOnClickListener {
             onBackPressed()
             finish()
         }
+    }
+
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        resultLauncher.launch(intent)
     }
 
     private fun selectLine() {

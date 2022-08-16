@@ -7,8 +7,12 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.phonedev.taexisitopanel.model.Productos
 import com.phonedev.taexisitopanel.R
+import com.phonedev.taexisitopanel.databinding.ActivityProductsviewBinding
+import com.phonedev.taexisitopanel.databinding.ItemViewBinding
+import com.phonedev.taexisitopanel.databinding.ProfileViewBinding
 
 class ProductosAdapter(private val productosList: List<Productos>) :
     RecyclerView.Adapter<ProductosAdapter.ViewHolder>() {
@@ -17,7 +21,7 @@ class ProductosAdapter(private val productosList: List<Productos>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ViewHolder(layoutInflater.inflate(R.layout.post_item_container, parent, false))
+        return ViewHolder(layoutInflater.inflate(R.layout.item_view, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -33,8 +37,14 @@ class ProductosAdapter(private val productosList: List<Productos>) :
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun render(productos: Productos) {
-            val img = itemView.findViewById<ImageView>(R.id.imbPost)
-            Glide.with(img).load(productos.img).into(img)
+            val binding = ItemViewBinding.bind(itemView)
+            Glide.with(binding.imgProduct)
+                .load(productos.img)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(binding.imgProduct)
+            binding.tvNombre.text = productos.nombre
+            binding.tvTipoComida.text = productos.tipo_comida
+            binding.tvPrecio.text = productos.precio
         }
     }
 }

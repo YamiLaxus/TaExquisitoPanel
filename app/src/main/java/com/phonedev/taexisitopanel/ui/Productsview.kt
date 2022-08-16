@@ -45,10 +45,10 @@ class Productsview : AppCompatActivity() {
                 response: Response<List<Productos>?>
             ) {
                 val responseBody = response.body()!!
-                var adapter = ProductosAdapter(responseBody)
+                val adapter = ProductosAdapter(responseBody)
 
                 productosList = responseBody
-                binding.recyclerView.layoutManager = GridLayoutManager(this@Productsview, 2)
+                binding.recyclerView.layoutManager = GridLayoutManager(this@Productsview, 1)
                 binding.recyclerView.adapter = adapter
 
                 adapter.onItemClick = {

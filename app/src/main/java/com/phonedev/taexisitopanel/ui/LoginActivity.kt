@@ -26,9 +26,9 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         login()
-        var pref = getSharedPreferences("user", Context.MODE_PRIVATE)
-        var user = pref.getString("usuario", "")
-        var pass = pref.getString("pass", "")
+        val pref = getSharedPreferences("user", Context.MODE_PRIVATE)
+        val user = pref.getString("usuario", "")
+        val pass = pref.getString("pass", "")
 
         if (user!!.isNotEmpty() and pass!!.isNotEmpty()) {
             showHome()
@@ -76,8 +76,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun guardarSharedPreference() {
-        var pref = getSharedPreferences("user", Context.MODE_PRIVATE)
-        var editor = pref.edit()
+        val pref = getSharedPreferences("user", Context.MODE_PRIVATE)
+        val editor = pref.edit()
         editor.putString("usuario", binding.etUser.text.toString().trim())
         editor.putString("pass", binding.etPassword.text.toString().trim())
         editor.commit()

@@ -33,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
             val url = "http://192.168.1.105/android_taexquisito/insertar.php"
             val queue = Volley.newRequestQueue(this)
             if (binding.etName.text.isNotEmpty() && binding.etNombreNegocio.text.isNotEmpty() && binding.etTipo.text.isNotEmpty() && binding.etTelefono.text.isNotEmpty() && binding.etUser.text.isNotEmpty() && binding.etPassword.text.isNotEmpty()) {
-                var resultadoPost = object :
+                val resultadoPost = object :
                     StringRequest(Request.Method.POST, url, Response.Listener<String> { response ->
                         Toast.makeText(this, response, Toast.LENGTH_SHORT).show()
                         goHome()
@@ -44,6 +44,7 @@ class RegisterActivity : AppCompatActivity() {
                             "Error no se puede crear la cuenta. $error",
                             Toast.LENGTH_SHORT
                         ).show()
+                        showAlert()
                         enableUI()
                     }) {
                     override fun getParams(): MutableMap<String, String>? {

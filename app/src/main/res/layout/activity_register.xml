@@ -16,7 +16,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/txtTitle"
@@ -182,7 +182,8 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etUser" />
+                app:layout_constraintTop_toBottomOf="@id/etUser"
+                tools:ignore="RtlSymmetry" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogin"
@@ -190,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:background="@drawable/background"
-                android:text="EXPLORA"
+                android:text="REGISTRAR"
                 android:textColor="#ffffff"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/btnCancel"

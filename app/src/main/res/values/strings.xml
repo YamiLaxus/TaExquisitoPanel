@@ -8,4 +8,8 @@
     <string name="tipo_de_producto">TIPO DE PRODUCTO*</string>
     <string name="campos_obligatorios">(Los campos * son obligatorios)</string>
     <string name="precio">Precio*</string>
+    <string name="moneda">Q.</string>
+    <string name="tipo_comida">Tipo:</string>
+    <string name="edit">EDITAR</string>
+    <string name="telefono">Telefono:</string>
 </resources>

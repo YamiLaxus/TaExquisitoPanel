@@ -9,10 +9,11 @@
         <entry key="app/src/main/res/layout/activity_adding.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.1527777777777778" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.12" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19900604248046874" />
         <entry key="app/src/main/res/layout/activity_productsview.xml" value="0.14635416666666667" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.20418670654296875" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.19454803466796877" />
+        <entry key="app/src/main/res/layout/item_view.xml" value="0.14351851851851852" />
         <entry key="app/src/main/res/layout/post_item_container.xml" value="0.16041666666666668" />
         <entry key="app/src/main/res/layout/profile_view.xml" value="0.11118421052631579" />
       </map>
